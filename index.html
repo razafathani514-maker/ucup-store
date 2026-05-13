@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCUP STORE</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <h1 class="logo">
+      UCUP STORE
+    </h1>
+
+    <p class="subtitle">
+      PENYETOK ID CANTIK
+    </p>
+
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="Cari ID..."
+    oninput="renderProducts()">
+
+  </div>
+
+  <!-- CATEGORY -->
+  <div class="categories">
+
+    <button
+    class="cat-btn active"
+    onclick="setCategory('all',this)">
+      Semua
+    </button>
+
+    <button
+    class="cat-btn"
+    onclick="setCategory('basic',this)">
+      Basic
+    </button>
+
+    <button
+    class="cat-btn"
+    onclick="setCategory('rare',this)">
+      Rare
+    </button>
+
+    <button
+    class="cat-btn"
+    onclick="setCategory('epic',this)">
+      Epic
+    </button>
+
+  </div>
+
+  <!-- ADMIN -->
+  <button
+  class="admin-btn"
+  onclick="openLogin()">
+    ADMIN PANEL
+  </button>
+
+  <!-- GRID -->
+  <div
+  class="grid"
+  id="grid"></div>
+
+  <!-- EMPTY -->
+  <p
+  class="empty hidden"
+  id="emptyText">
+    ID tidak ditemukan
+  </p>
+
+</div>
+
+<!-- LOGIN -->
+<div
+class="popup hidden"
+id="loginPopup">
+
+  <h2>LOGIN ADMIN</h2>
+
+  <input
+  type="password"
+  id="adminPassword"
+  placeholder="Masukkan Password">
+
+  <button onclick="loginAdmin()">
+    LOGIN
+  </button>
+
+  <button
+  class="close-btn"
+  onclick="closeLogin()">
+    CLOSE
+  </button>
+
+</div>
+
+<!-- ADMIN PANEL -->
+<div
+class="popup hidden"
+id="adminPanel">
+
+  <h2>UCUP STORE ADMIN</h2>
+
+  <input
+  type="text"
+  id="idInput"
+  placeholder="Masukkan ID">
+
+  <input
+  type="number"
+  id="priceInput"
+  placeholder="Masukkan Harga">
+
+  <select id="categoryInput">
+
+    <option value="basic">
+      Basic
+    </option>
+
+    <option value="rare">
+      Rare
+    </option>
+
+    <option value="epic">
+      Epic
+    </option>
+
+  </select>
+
+  <button onclick="addProduct()">
+    TAMBAH ID
+  </button>
+
+  <button
+  class="close-btn"
+  onclick="closeAdmin()">
+    CLOSE
+  </button>
+
+</div>
+
+<!-- QRIS POPUP -->
+<div class="popup hidden" id="qrisPopup"> 
+    <div class="qris-card">
+        <h2>SCAN QRIS</h2>
+        <img src="qris.jpg" alt="QRIS" class="popup-qris">
+        <p class="qris-text">Scan untuk pembayaran</p>
+
+        <div class="button-group">
+            <button onclick="confirmPayment()">Saya Sudah Bayar</button>
+            <button onclick="closeQRIS()">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+<!-- OVERLAY -->
+<div
+class="overlay hidden"
+id="overlay"></div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
